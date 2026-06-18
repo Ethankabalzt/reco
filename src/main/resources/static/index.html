@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RECO - Gestión de Espacios</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h1 class="navbar-brand">RECO</h1>
+  </nav>
+
+  <main class="container">
+    <!-- SECCIÓN 1: USUARIOS -->
+    <section class="card" id="section-users">
+      <h2 class="card-title">Gestión de Usuarios</h2>
+      <form id="form-user">
+        <div class="form-group">
+          <label for="user-name">Nombre completo</label>
+          <input type="text" id="user-name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="user-email">Correo electrónico</label>
+          <input type="email" id="user-email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="user-password">Contraseña</label>
+          <input type="password" id="user-password" name="password" required />
+          <ul class="password-rules" id="password-rules">
+            <li data-rule="lower">Minúscula (a-z)</li>
+            <li data-rule="upper">Mayúscula (A-Z)</li>
+            <li data-rule="digit">Número (0-9)</li>
+            <li data-rule="special">Carácter especial (@#$%^&*!?)</li>
+            <li data-rule="length">Mínimo 8 caracteres</li>
+          </ul>
+        </div>
+        <div class="form-group">
+          <label for="user-role">Rol</label>
+          <select id="user-role" name="role" required>
+            <option value="">Seleccione un rol</option>
+            <option value="ROLE_USER">ROLE_USER</option>
+            <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+            <option value="ROLE_MODERATOR">ROLE_MODERATOR</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Registrar Usuario</button>
+      </form>
+      <div class="notification" id="notif-user"></div>
+    </section>
+
+    <!-- SECCIÓN 2: ESPACIOS -->
+    <section class="card" id="section-spaces">
+      <h2 class="card-title">Gestión de Espacios</h2>
+      <form id="form-space">
+        <div class="form-group">
+          <label for="space-name">Nombre del espacio</label>
+          <input type="text" id="space-name" name="name" placeholder="Ej: Sala de Juntas" required />
+        </div>
+        <div class="form-group">
+          <label for="space-location">Ubicación</label>
+          <input type="text" id="space-location" name="location" placeholder="Ej: Piso 2" required />
+        </div>
+        <div class="form-group">
+          <label for="space-type">Tipo</label>
+          <input type="text" id="space-type" name="type" placeholder="Ej: Sala de Reuniones" required />
+        </div>
+        <div class="form-group">
+          <label for="space-price">Precio por hora</label>
+          <input type="number" id="space-price" name="price" min="0" step="0.01" required />
+        </div>
+        <button type="submit" class="btn">Registrar Espacio</button>
+      </form>
+      <div class="notification" id="notif-space"></div>
+    </section>
+
+    <!-- SECCIÓN 3: RESERVACIONES -->
+    <section class="card" id="section-reservations">
+      <h2 class="card-title">Reservación de Espacios</h2>
+      <form id="form-reservation">
+        <div class="form-group">
+          <label for="res-space-id">ID del Espacio</label>
+          <input type="number" id="res-space-id" name="spaceId" min="1" required />
+        </div>
+        <div class="form-group">
+          <label for="res-user-email">Correo del Usuario</label>
+          <input type="email" id="res-user-email" name="userEmail" required />
+        </div>
+        <div class="form-group">
+          <label for="res-start-date">Fecha/Hora de Inicio</label>
+          <input type="datetime-local" id="res-start-date" name="startDate" required />
+        </div>
+        <div class="form-group">
+          <label for="res-end-date">Fecha/Hora de Fin</label>
+          <input type="datetime-local" id="res-end-date" name="endDate" required />
+        </div>
+        <button type="submit" class="btn">Crear Reservación</button>
+      </form>
+      <div class="notification" id="notif-reservation"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
