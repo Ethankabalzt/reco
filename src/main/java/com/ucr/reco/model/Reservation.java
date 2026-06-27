@@ -2,7 +2,6 @@ package com.ucr.reco.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity

@@ -24,6 +24,10 @@ public class ReservationService {
         return reservationRepository.findAll();
     }
 
+    public Reservation getReservationById(Integer id) {
+        return reservationRepository.findById(id).orElse(null);
+    }
+
     public Reservation add(ReservationDTO reservation) {
         Space space = spaceService.getById(reservation.getSpaceId());
         User user = userService.getUserByEmail(reservation.getUserEmail());

@@ -50,7 +50,7 @@ public class SpaceController {
         return ResponseEntity.ok("Espacio actualizado exitosamente");
     }
 
-    @DeleteMapping({"/{id}"})
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
 
         if (service.delete(id) == null) {

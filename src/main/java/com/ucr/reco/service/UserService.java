@@ -18,14 +18,6 @@ public class UserService {
         return repository.findAll();
     }
 
-    /*
-        public User add(User user){
-            if(repository.existsByEmail(user.getEmail())){
-                return null;
-            }
-            return repository.save(user);
-        }
-    */
     public User add(UserDTO user) {
         if (repository.existsByEmail(user.getEmail())) {
             return null;
@@ -40,18 +32,10 @@ public class UserService {
         userTemporal.setPassword(user.getPassword());
         userTemporal.setRole(user.getRole());
         return repository.save(userTemporal);
-        //return "Proceso exitoso";
     }
 
     public User getById(Integer id) {
-        User user = repository.findById(id.intValue());
-        if (user != null) {
-            return user;
-        }
-        /*if (repository.existsById(id)) {
-            return repository.findById(id).get();
-        }*/
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     public User update(UserDTO user) {
